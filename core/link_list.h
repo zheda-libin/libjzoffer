@@ -32,6 +32,8 @@ namespace link_list{
     //****************************** ALGO ******************************
     void PrintListReversingly_Iteratively(ListNode * pHead);
     void PrintListReversingly_Recursively(ListNode * pHead);
+
+    void DeleteNode(ListNode ** pListHead, ListNode* pToBeDeleted);
 }
 
 #endif //LIBJZOFFER_LINK_LIST_H

@@ -110,6 +110,39 @@ namespace link_list{
             printf("%d\t", pHead->m_nValue);
         }
     }
+
+
+    void DeleteNode(ListNode ** pListHead, ListNode* pToBeDeleted)
+    {
+        // 普通情况，是不是尾结点，若不是
+        if (pToBeDeleted->m_pNext != nullptr)
+        {
+            ListNode* pNext = pToBeDeleted->m_pNext;
+            pToBeDeleted->m_nValue = pNext->m_nValue;
+            pToBeDeleted->m_pNext = pNext->m_pNext;
+            delete pNext;
+            pNext = nullptr;        // 空悬指针
+        }
+        // 单节点
+        else if (*pListHead == pToBeDeleted)
+        {
+            delete pToBeDeleted;
+            pToBeDeleted = nullptr;
+            *pListHead = nullptr;
+        }
+        // 删除节点是尾结点，且不为单节点
+        else
+        {
+            ListNode * pNode = *pListHead;
+            while(pNode->m_pNext != pToBeDeleted)
+            {
+                pNode = pNode->m_pNext;
+            }
+            pNode->m_pNext = nullptr;
+            delete pToBeDeleted;
+            pToBeDeleted = nullptr;
+        }
+    }
 }
 
 

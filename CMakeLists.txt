@@ -8,3 +8,4 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 add_subdirectory(core)
 add_subdirectory(exercise/ex6)
+add_subdirectory(exercise/ex18)
